@@ -1,0 +1,274 @@
+
+    formats:
+    - MessageType                  : [1,1]
+    - Timestamp                    : [2,6]
+    - StockLocate                  : [1,2]
+    - TrackingNumber               : [1,2]
+    - Stock                        : [3,8]
+    - Shares                       : [2,4]
+    - Price                        : [2,4]
+    - BuySellIndicator             : [1,1]
+    - OrderReferenceNumber         : [4,8]
+    - MatchNumber                  : [4,8]
+    - Attribution                  : [3,4]
+    - CanceledShares               : [2,4]
+    - CrossPrice                   : [2,4]
+    - CrossShares                  : [4,8]
+    - CrossType                    : [1,1]
+    - CurrentReferencePrice        : [2,4]
+    - EventCode                    : [1,1]
+    - ExecutedShares               : [2,4]
+    - ExecutionPrice               : [2,4]
+    - FarPrice                     : [2,4]
+    - FinancialStatusIndicator     : [1,1]
+    - Imbalance                    : [4,8]
+    - ImbalanceDirection           : [1,1]
+    - MPID                         : [3,4]
+    - MarketCatagory               : [1,1]
+    - MarketMakerMode              : [1,1]
+    - MarketParticipantState       : [1,1]
+    - NearPrice                    : [2,4]
+    - NewOrderReferenceNumber      : [4,8]
+    - OriginalOrderReferenceNumber : [4,8]
+    - PairedShares                 : [4,8]
+    - PriceVariationIndicator      : [1,1]
+    - PrimaryMarketMaker           : [1,1]
+    - Printable                    : [1,1]
+    - Reason                       : [3,4]
+    - RegSHOAction                 : [1,1]
+    - Reserved                     : [1,1]
+    - RoundLotSize                 : [2,4]
+    - RoundLotsOnly                : [1,1]
+    - TradingState                 : [1,1]
+    - IssueClassification          : [1,1]
+    - IssueSubType                 : [1,2]
+    - Authenticity                 : [1,1]
+    - SSThresholdIndicator         : [1,1]
+    - IPOFlag                      : [1,1]
+    - LULD                         : [1,1]
+    - ETPFlag                      : [1,1]
+    - ETPFactor                    : [1,4]
+    - InverseIndicator             : [1,1]
+    - LocateCode                   : [1,2]
+    - Level1                       : [3,8]
+    - Level2                       : [3,8]
+    - Level3                       : [3,8]
+    - BreachedLevel                : [1,1]
+    - IPOQuotRelTime               : [1,4]
+    - IPOQuotRelQual               : [1,1]
+    - IPOPrice                     : [1,4]
+    messages:
+      S: 
+        name: System Event Message
+        fields:
+        - MessageType
+        - StockLocate
+        - TrackingNumber
+        - Timestamp
+        - EventCode
+      R:
+        name: Stock Directory
+        fields:
+        - MessageType
+        - StockLocate
+        - TrackingNumber
+        - Timestamp
+        - Stock
+        - MarketCatagory
+        - FinancialStatusIndicator
+        - RoundLotSize
+        - RoundLotsOnly
+        - IssueClassification
+        - IssueSubType
+        - Authenticity
+        - SSThresholdIndicator
+        - IPOFlag
+        - LULD
+        - ETPFlag
+        - ETPFactor
+        - InverseIndicator
+      H:
+        name: Stock Trading Action
+        fields:
+        - MessageType
+        - StockLocate
+        - TrackingNumber
+        - Timestamp
+        - Stock
+        - TradingState
+        - Reserved
+        - Reason
+      Y:
+        name: Reg SHO Short Sale Price Test Restricted Indicator
+        fields:
+        - MessageType
+        - LocateCode
+        - TrackingNumber
+        - Timestamp
+        - Stock
+        - RegSHOAction
+      L:
+        name: Market Participant Position
+        fields:
+        - MessageType
+        - StockLocate
+        - TrackingNumber
+        - Timestamp
+        - MPID
+        - Stock
+        - PrimaryMarketMaker
+        - MarketMakerMode
+        - MarketParticipantState
+      V:
+        name: MWCB Decline Level Message
+        fields:
+        - MessageType
+        - StockLocate
+        - TrackingNumber
+        - Timestamp
+        - Level1
+        - Level2
+        - Level3
+      W:
+        name: MWCB Breach Message 
+        fields:
+        - MessageType
+        - StockLocate
+        - TrackingNumber
+        - Timestamp
+        - BreachedLevel
+      K:
+        name: IPO Quoting Period Update
+        fields:
+        - MessageType
+        - StockLocate
+        - Timestamp
+        - Stock
+        - IPOQuotRelTime
+        - IPOQuotRelQual
+        - IPOPrice
+      A:
+        name: Add Order (No MPID Attribution)
+        fields:
+        - MessageType
+        - StockLocate
+        - TrackingNumber
+        - Timestamp
+        - OrderReferenceNumber
+        - BuySellIndicator
+        - Shares
+        - Stock
+        - Price
+      F:
+        name: Add Order with MPID Attribution
+        fields:
+        - MessageType
+        - StockLocate
+        - TrackingNumber
+        - Timestamp
+        - OrderReferenceNumber
+        - BuySellIndicator
+        - Shares
+        - Stock
+        - Price
+        - Attribution
+      E:
+        name: Order Executed
+        fields:
+        - MessageType
+        - StockLocate
+        - TrackingNumber
+        - Timestamp
+        - OrderReferenceNumber
+        - ExecutedShares
+        - MatchNumber
+      C:
+        name: Order Executed with Price
+        fields:
+        - MessageType
+        - StockLocate
+        - TrackingNumber
+        - Timestamp
+        - OrderReferenceNumber
+        - ExecutedShares
+        - MatchNumber
+        - Printable
+        - ExecutionPrice
+      X:
+        name: Order Cancel
+        fields:
+        - MessageType
+        - StockLocate
+        - TrackingNumber
+        - Timestamp
+        - OrderReferenceNumber
+        - CanceledShares
+      D:
+        name: Order Delete
+        fields:
+        - MessageType
+        - StockLocate
+        - TrackingNumber
+        - Timestamp
+        - OrderReferenceNumber
+      U:
+        name: Order Replace
+        fields:
+        - MessageType
+        - StockLocate
+        - TrackingNumber
+        - Timestamp
+        - OriginalOrderReferenceNumber
+        - NewOrderReferenceNumber
+        - Shares
+        - Price
+      P:
+        name: Trade Message (non-cross)
+        fields:
+        - MessageType
+        - StockLocate
+        - TrackingNumber
+        - Timestamp
+        - OrderReferenceNumber
+        - BuySellIndicator
+        - Shares
+        - Stock
+        - Price
+        - MatchNumber
+      Q:
+        name: Cross Trade
+        fields:
+        - MessageType
+        - StockLocate
+        - TrackingNumber
+        - Timestamp
+        - Shares
+        - Stock
+        - CrossPrice
+        - MatchNumber
+        - CrossType
+      B:
+        name: Broken Trade
+        fields:
+        - MessageType
+        - StockLocate
+        - TrackingNumber
+        - Timestamp
+        - MatchNumber
+      I:
+        name: Net Order Imbalance Indicator (NOII)
+        fields:
+        - MessageType
+        - StockLocate
+        - TrackingNumber
+        - Timestamp
+        - PairedShares
+        - Imbalance
+        - ImbalanceDirection
+        - Stock
+        - FarPrice
+        - NearPrice
+        - CurrentReferencePrice
+        - CrossType
+        - PriceVariationIndicator
+   
