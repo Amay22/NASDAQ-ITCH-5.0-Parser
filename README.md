@@ -11,3 +11,6 @@ Download raw ITCH 5.0 data from the following link:
 ftp://emi.nasdaq.com/ITCH/08022014.NASDAQ_ITCH50.gz
 
 
+#DATA FORMAT
+
+http://www.nasdaqtrader.com/content/technicalsupport/specifications/dataproducts/NQTVITCHspecification.pdf
