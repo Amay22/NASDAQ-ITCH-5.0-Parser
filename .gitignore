@@ -1,0 +1,10 @@
+wiki/
+*.wiki
+
+.DS_Store
+
+manifest.mf
+
+nbproject
+
+build.xml
