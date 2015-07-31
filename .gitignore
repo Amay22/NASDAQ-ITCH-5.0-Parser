@@ -8,3 +8,5 @@ manifest.mf
 nbproject
 
 build.xml
+
+build/
