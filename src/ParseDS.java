@@ -8,12 +8,12 @@ import java.util.HashMap;
 import java.util.Map;
 import org.yaml.snakeyaml.Yaml;
 
-public class ParseDS {
+public final class ParseDS {
     // yaml DS map
-    private Map<Object, Object> yMap;
+    private final Map<Object, Object> yMap;
     private Map<Object, Object> fMap;
     private Map<Object, Object> mMap;
-    private Yaml yaml;
+    private final Yaml yaml;
     // constructor will take in the yaml parser
     ParseDS(String filename) throws FileNotFoundException {
         yaml = new Yaml();
@@ -28,13 +28,12 @@ public class ParseDS {
     }
     // Build the formats data structure
     public void buildFormats() {
-        fMap = new HashMap<Object, Object>();
+        fMap = new HashMap<>();
         ArrayList<Object> fArray = (ArrayList<Object>) yMap.get("formats");
 
-        for (int i = 0; i < fArray.size(); i++) {
-            Map<Object, Object> tempMap = (Map<Object, Object>) fArray.get(i);
+        fArray.stream().map((fArray1) -> (Map<Object, Object>) fArray1).forEach((tempMap) -> {
             fMap.put(tempMap.keySet().toArray()[0], tempMap.values().toArray()[0]);
-        }
+        });
     }
     // Build the messages data structure
     public void buildMessages() {

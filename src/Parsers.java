@@ -6,57 +6,45 @@ import java.util.Arrays;
 
 public class Parsers {
 
-    private ParseDS parDS;
+    private final ParseDS parDS;
     // Constructor, takes a ParseDS object
     Parsers(ParseDS parDS) {
         this.parDS = parDS;
     }
     // Given a byte array and length, will return the length
-    public String getString(byte[] payload, int len) throws UnsupportedEncodingException {
-        // The length needs to be passed as well
-        String str = "";
-        for (int i = 0; i < payload.length; i++) {
-            str = str + ByteBuffer.wrap(payload).getChar();
-        }
-        return new String(payload, "UTF8").replaceAll("\\W", "");
+    public String getString(byte[] payload) throws UnsupportedEncodingException {
+        return new String(payload);
     }
     // given a byte array will return the Length of payload
     public Object getLen(byte[] payload) {
-		// Convert to big end
+        // Convert to big end
         ByteBuffer length = ByteBuffer.wrap(payload);
         return (int) length.getShort(0);
     }
-    // given byte array of size 4, will return an INT
+    // given byte array of any size, will return an INT
     public String getInt(byte[] payload) {
-        return Integer.toString(ByteBuffer.wrap(payload).getInt());
+        String output = "";
+        for (int i = 0; i < payload.length; i++) {
+            output += Integer.toString(payload[i] & 0xFF );
+        }
+        return output;
     }
-    // given byte array of size 8, will return LONG
-    public Object getLong(byte[] payload) {
-        return Long.toString(ByteBuffer.wrap(payload).getLong());
+    // given byte array of any size, will return an Double
+    public String getDouble(byte[] payload) {
+        return (""+(Double.parseDouble(getInt(payload))/10000));
     }
-    // return char at beginning of byte array (Used to get messageType)
-    public String getChar(byte[] payload) {
-
-        String messageType = new String(payload);
-
-        String c = "";
-        c = c + messageType.charAt(0);
-
-        return c;
-    }
-    // Payload in, get the messageType, the fields, then the get the message  
+    // Payload in, get the messageType, the fields, then the get the message
     public ArrayList<String> messageIn(byte[] payload) throws UnsupportedEncodingException {
         // Keep track of where we are at in the message
         int messagePointer = 0;
-        ArrayList<String> messageArray = new ArrayList<String>();
-        ArrayList<Object> fieldsArray = new ArrayList<Object>();
+        ArrayList<String> messageArray = new ArrayList<>();
         // Get the messageType (getChar only returns A char in the first byte)
-        String messageType = getChar(payload).toString();
+        String messageType = ""+new String(payload).charAt(0);
         messageArray.add(messageType);
         // increment after look at first char
         messagePointer = messagePointer + 1;
         // Get the fields for this message
-        fieldsArray = this.parDS.getFields(messageType);
+        ArrayList<Object> fieldsArray = this.parDS.getFields(messageType);
         // loop over fields array, parsing messages --start at 1, we already have messageType
         for (int i = 1; i < fieldsArray.size(); i++) {
             // Get the field for this part of the message
@@ -72,22 +60,21 @@ public class Parsers {
     }
     // With input byteArray, len & parse type, call approp parser
     public String parse(byte[] arr, ArrayList<Object> fieldArray) throws UnsupportedEncodingException {
-        String value = null;
+        String value = "";
         switch ((Integer) fieldArray.get(0)) {
             case 1:
-                value = (String) getChar(arr);
+                value = (String) getString(arr);
                 break;
             case 2:
                 value = (String) getInt(arr);
                 break;
             case 3:
-                value = (String) getString(arr, (Integer) fieldArray.get(1));
+                value = (String) getDouble(arr);
                 break;
             case 4:
-                value = (String) getLong(arr);
+                value = ""+ (Double.parseDouble(getDouble(arr))/1000);
                 break;
         }
-        return value;
+        return value.trim();
     }
-
 }
