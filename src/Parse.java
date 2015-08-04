@@ -53,7 +53,8 @@ public class Parse {
         return payBytes;
     }
     public static void main(String args[]) throws IOException, InterruptedException {
-        String filename = "Enter File path Here";
+        //String filename = "Enter File path Here";
+        String filename = "08022014.NASDAQ_ITCH50";
         Parse parse = new Parse(filename, true); // true to print otherwise enter false
         while (parse.parse() != null) {}
     }

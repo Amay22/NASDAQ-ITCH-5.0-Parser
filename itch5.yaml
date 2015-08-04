@@ -2,39 +2,39 @@
     formats:
     - MessageType                  : [1,1]
     - Timestamp                    : [2,6]
-    - StockLocate                  : [1,2]
-    - TrackingNumber               : [1,2]
-    - Stock                        : [3,8]
+    - StockLocate                  : [2,2]
+    - TrackingNumber               : [2,2]
+    - Stock                        : [1,8]
     - Shares                       : [2,4]
-    - Price                        : [2,4]
+    - Price                        : [3,4]
     - BuySellIndicator             : [1,1]
-    - OrderReferenceNumber         : [4,8]
-    - MatchNumber                  : [4,8]
-    - Attribution                  : [3,4]
+    - OrderReferenceNumber         : [2,8]
+    - MatchNumber                  : [2,8]
+    - Attribution                  : [1,4]
     - CanceledShares               : [2,4]
-    - CrossPrice                   : [2,4]
-    - CrossShares                  : [4,8]
+    - CrossPrice                   : [3,4]
+    - CrossShares                  : [2,8]
     - CrossType                    : [1,1]
-    - CurrentReferencePrice        : [2,4]
+    - CurrentReferencePrice        : [3,4]
     - EventCode                    : [1,1]
     - ExecutedShares               : [2,4]
-    - ExecutionPrice               : [2,4]
-    - FarPrice                     : [2,4]
+    - ExecutionPrice               : [3,4]
+    - FarPrice                     : [3,4]
     - FinancialStatusIndicator     : [1,1]
-    - Imbalance                    : [4,8]
+    - Imbalance                    : [2,8]
     - ImbalanceDirection           : [1,1]
-    - MPID                         : [3,4]
+    - MPID                         : [1,4]
     - MarketCatagory               : [1,1]
     - MarketMakerMode              : [1,1]
     - MarketParticipantState       : [1,1]
-    - NearPrice                    : [2,4]
-    - NewOrderReferenceNumber      : [4,8]
-    - OriginalOrderReferenceNumber : [4,8]
-    - PairedShares                 : [4,8]
+    - NearPrice                    : [3,4]
+    - NewOrderReferenceNumber      : [2,8]
+    - OriginalOrderReferenceNumber : [2,8]
+    - PairedShares                 : [2,8]
     - PriceVariationIndicator      : [1,1]
     - PrimaryMarketMaker           : [1,1]
     - Printable                    : [1,1]
-    - Reason                       : [3,4]
+    - Reason                       : [1,4]
     - RegSHOAction                 : [1,1]
     - Reserved                     : [1,1]
     - RoundLotSize                 : [2,4]
@@ -47,18 +47,18 @@
     - IPOFlag                      : [1,1]
     - LULD                         : [1,1]
     - ETPFlag                      : [1,1]
-    - ETPFactor                    : [1,4]
+    - ETPFactor                    : [2,4]
     - InverseIndicator             : [1,1]
-    - LocateCode                   : [1,2]
-    - Level1                       : [3,8]
-    - Level2                       : [3,8]
-    - Level3                       : [3,8]
+    - LocateCode                   : [2,2]
+    - Level1                       : [4,8]
+    - Level2                       : [4,8]
+    - Level3                       : [4,8]
     - BreachedLevel                : [1,1]
-    - IPOQuotRelTime               : [1,4]
+    - IPOQuotRelTime               : [2,4]
     - IPOQuotRelQual               : [1,1]
-    - IPOPrice                     : [1,4]
+    - IPOPrice                     : [3,4]
     messages:
-      S: 
+      S:
         name: System Event Message
         fields:
         - MessageType
@@ -130,7 +130,7 @@
         - Level2
         - Level3
       W:
-        name: MWCB Breach Message 
+        name: MWCB Breach Message
         fields:
         - MessageType
         - StockLocate
@@ -271,4 +271,4 @@
         - CurrentReferencePrice
         - CrossType
         - PriceVariationIndicator
-   
+
