@@ -23,11 +23,11 @@ public class Parsers {
     }
     // given byte array of any size, will return an INT
     public String getInt(byte[] payload) {
-        String output = "";
+        long value = 0;
         for (int i = 0; i < payload.length; i++) {
-            output += Integer.toString(payload[i] & 0xFF );
+            value = (value << 8) + (payload[i] & 0xff);
         }
-        return output;
+        return ""+ value;
     }
     // given byte array of any size, will return an Double
     public String getDouble(byte[] payload) {
@@ -63,13 +63,13 @@ public class Parsers {
         String value = "";
         switch ((Integer) fieldArray.get(0)) {
             case 1:
-                value = (String) getString(arr);
+                value = getString(arr);
                 break;
             case 2:
-                value = (String) getInt(arr);
+                value = ""+ Long.parseLong(getInt(arr));
                 break;
             case 3:
-                value = (String) getDouble(arr);
+                value = ""+ Double.parseDouble(getDouble(arr));
                 break;
             case 4:
                 value = ""+ (Double.parseDouble(getDouble(arr))/1000);
