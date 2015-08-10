@@ -6,6 +6,7 @@
     - TrackingNumber               : [2,2]
     - Stock                        : [1,8]
     - Shares                       : [2,4]
+    - Shares_Q                     : [2,8]
     - Price                        : [3,4]
     - BuySellIndicator             : [1,1]
     - OrderReferenceNumber         : [2,8]
@@ -242,7 +243,7 @@
         - StockLocate
         - TrackingNumber
         - Timestamp
-        - Shares
+        - Shares_Q
         - Stock
         - CrossPrice
         - MatchNumber
