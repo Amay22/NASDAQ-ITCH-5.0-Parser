@@ -6,7 +6,7 @@ Thanks to Quannabe. I just modified the YAML file for the nerw ITCH 5.0 format.
 
 #How To
 
- The main function is location in ```src/parse.java```. Just enter the file name and path to the ITCH file that you wanna parse here (File Name)[https://github.com/Amay22/NASDAQ-ITCH-5.0-Parser/blob/master/src/Parse.java#L56].
+ The main function is location in ```src/parse.java```. Just enter the file name and path to the ITCH file that you wanna parse here [File Name](https://github.com/Amay22/NASDAQ-ITCH-5.0-Parser/blob/master/src/Parse.java#L56).
  
 ## Run Code
 
