@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 public class Parse {
     private String filename;
-    private String yamlFile = "itch5.yaml";
+    private String yamlFile = "..//itch5.yaml";
     private boolean parseNPrint;
     private byte[] lenBytes = new byte[2];
     private InputStream input;
