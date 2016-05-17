@@ -2,7 +2,7 @@
     formats:
     - MessageType                  : [1,1]
     - Timestamp                    : [2,4]
-    - SecondsTime                  : [2,4]
+    - SecondsTimestamp             : [2,4]
     - StockLocate                  : [2,2]
     - TrackingNumber               : [2,2]
     - Stock                        : [1,8]
@@ -94,6 +94,7 @@
       T:
         name: Timestamp Seeconds
         fields:
+        - MessageType
         - SecondsTimestamp
       S:
         name: System Event Message
