@@ -17,9 +17,9 @@ Compile the code and run it. Navigate to the src directory and run the following
   java Parse [ITCH file path]
 ```
 
-[ITCH file path] can be left blank to read from stdin.
+(```[ITCH file path]``` can be left blank to read from stdin.)
 
-## ITCH format variations
+## ITCH Format Variations
 
 Support is included for custom ITCH formats. See ```itch5.yaml``` for an example of how to construct an	ITCH format configuration. To include a custom ITCH format configuration:
 
