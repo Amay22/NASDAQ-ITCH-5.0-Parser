@@ -17,7 +17,7 @@ Compile the code and run it. Navigate to the src directory and run the following
   java Parse [ITCH file path]
 ```
 
-(```[ITCH file path]``` can be left blank to read from stdin.)
+(Path can be left blank to read from stdin.)
 
 ## ITCH Format Variations
 
