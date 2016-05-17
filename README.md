@@ -25,7 +25,9 @@ Support is included for custom ITCH formats. See ```itch5.yaml``` for an example
 
 ``` java Parse -y [YAML config] [ITCH file path] ```
 
-Genium is supported out of the box. Use the ```genium2.yaml``` config included in the repo:
+### Genium
+
+Genium is supported out of box. Use the ```genium2.yaml``` config included in the repo:
 
 ``` java Parse -y ../genium2.yaml [ITCH file path] ```
 
