@@ -8,6 +8,7 @@
     - Stock                        : [1,8]
     - Shares                       : [2,4]
     - Shares_Q                     : [2,8]
+    - Quantity                     : [2,8]
     - Price                        : [3,4]
     - BuySellIndicator             : [1,1]
     - OrderReferenceNumber         : [2,8]
@@ -20,6 +21,7 @@
     - CurrentReferencePrice        : [3,4]
     - EventCode                    : [1,1]
     - ExecutedShares               : [2,4]
+    - ExecutedQuantity             : [2,8]
     - ExecutionPrice               : [3,4]
     - FarPrice                     : [3,4]
     - FinancialStatusIndicator     : [1,1]
@@ -144,7 +146,7 @@
         - OrderBookNumber
         - BuySellIndicator
         - OrderBookPosition
-        - Shares
+        - Quantity
         - Price
         - OrderAttributes
         - LotType
@@ -157,7 +159,7 @@
         - OrderBookNumber
         - BuySellIndicator
         - OrderBookPosition
-        - Shares
+        - Quantity
         - Price
         - OrderAttributes
         - LotType
@@ -170,7 +172,7 @@
         - OrderReferenceNumber
         - OrderBookNumber
         - BuySellIndicator
-        - ExecutedShares
+        - ExecutedQuantity
         - MatchNumber
         - ComboGroupNumber
         - ParticipantNumber
@@ -183,7 +185,7 @@
         - OrderReferenceNumber
         - OrderBookNumber
         - BuySellIndicator
-        - ExecutedShares
+        - ExecutedQuantity
         - MatchNumber
         - ComboGroupNumber
         - ParticipantNumber
@@ -208,7 +210,7 @@
         - OrderBookNumber
         - BuySellIndicator
         - OrderBookPosition
-        - Shares
+        - Quantity
         - Price
         - OrderAttributes
       P:
@@ -219,7 +221,7 @@
         - MatchNumber
         - ComboGroupNumber
         - BuySellIndicator
-        - ExecutedShares
+        - ExecutedQuantity
         - OrderBookNumber
         - TradePrice
         - ParticipantNumber
