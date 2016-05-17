@@ -17,6 +17,18 @@ Compile the code and run it. Navigate to the src directory and run the following
   java Parse [ITCH file path]
 ```
 
+[ITCH file path] can be left blank to read from stdin.
+
+## ITCH format variations
+
+Support is included for custom ITCH formats. See ```itch5.yaml``` for an example of how to construct an	ITCH format configuration. To include a custom ITCH format configuration:
+
+``` java Parse -y [YAML config] [ITCH file path] ```
+
+Genium is supported out of the box. Use the ```genium2.yaml``` config included in the repo:
+
+``` java Parse -y ../genium2.yaml [ITCH file path] ```
+
 #Data
 
 Download raw ITCH 5.0 data from the following link:
