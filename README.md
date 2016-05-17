@@ -26,3 +26,7 @@ ftp://emi.nasdaq.com/ITCH/08022014.NASDAQ_ITCH50.gz
 #DATA FORMAT
 
 http://www.nasdaqtrader.com/content/technicalsupport/specifications/dataproducts/NQTVITCHspecification.pdf
+
+(For Nasdaq Genium)
+
+http://business.nasdaq.com/Docs/ITCHRefDataGuideNFXv2_00_tcm5044-18017.pdf
