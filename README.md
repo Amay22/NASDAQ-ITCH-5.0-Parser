@@ -13,8 +13,8 @@ Thanks to Quannabe. I just modified the YAML file for the nerw ITCH 5.0 format.
 Compile the code and run it. Navigate to the src directory and run the following commands in your terminal. 
 
 ```
-  javac parse.java
-  java parse
+  javac Parse.java
+  java Parse [ITCH file path]
 ```
 
 #Data
