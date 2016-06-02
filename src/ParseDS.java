@@ -48,7 +48,9 @@ public final class ParseDS {
     }
     // Given the field, get the correct parser format for that field
     public ArrayList<Object> getFormat(String field) {
-        return (ArrayList<Object>) fMap.get(field);
+	Object fieldVal = fMap.get(field);
+	assert fieldVal != null : "Format field: " + field;
+        return (ArrayList<Object>) fieldVal;
     }
     // Given message type, return String Message Name
     public String getFieldName(String mType) {

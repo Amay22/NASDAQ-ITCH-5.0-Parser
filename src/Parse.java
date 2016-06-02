@@ -47,7 +47,11 @@ public class Parse {
         }
         int payLength = input.read();
         byte[] payBytes = new byte[payLength]; // Get the payload
-        input.read(payBytes);
+
+	int offset = 0;  // Loop until we've read the full payload size
+	while (offset < payLength) {
+	    offset += input.read(payBytes, offset, (payBytes - offset));
+	}
 
         // Check if we are parsing and printing
         if (parseNPrint) {
