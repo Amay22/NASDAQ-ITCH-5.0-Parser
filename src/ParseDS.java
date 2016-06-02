@@ -36,10 +36,6 @@ public final class ParseDS {
 	    fMap.put(tempMap.keySet().toArray()[0],
 		     tempMap.values().toArray()[0]);
 	}
-
-        /*fArray.stream().map((fArray1) -> (Map<Object, Object>) fArray1).forEach((tempMap) -> {
-            fMap.put(tempMap.keySet().toArray()[0], tempMap.values().toArray()[0]);
-	    });*/
     }
     // Build the messages data structure
     public void buildMessages() {
