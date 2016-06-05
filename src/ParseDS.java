@@ -44,12 +44,13 @@ public final class ParseDS {
     // Given Message type, return an array of the fields
     public ArrayList<Object> getFields(String mType) {
         Map<Object, Object> tempMap = (Map<Object, Object>) mMap.get(mType);
+	assert tempMap != null : "File type missing: " + mType;
         return (ArrayList<Object>) tempMap.get("fields");
     }
     // Given the field, get the correct parser format for that field
     public ArrayList<Object> getFormat(String field) {
 	Object fieldVal = fMap.get(field);
-	assert fieldVal != null : "Format field: " + field;
+	assert fieldVal != null : "Format field missing: " + field;
         return (ArrayList<Object>) fieldVal;
     }
     // Given message type, return String Message Name

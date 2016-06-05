@@ -50,7 +50,7 @@ public class Parse {
 
 	int offset = 0;  // Loop until we've read the full payload size
 	while (offset < payLength) {
-	    offset += input.read(payBytes, offset, (payBytes - offset));
+	    offset += input.read(payBytes, offset, payLength - offset);
 	}
 
         // Check if we are parsing and printing
