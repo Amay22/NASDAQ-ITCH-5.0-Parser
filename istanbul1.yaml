@@ -76,7 +76,7 @@
     - IPOQuotRelQual               : [1,1]
     - IPOPrice                     : [3,4]
     - OrderBookNumber              : [2,4]
-    - OrderBookStateName           : [1,1]
+    - OrderBookStateName           : [1,20]
     - BidQty                       : [2,8]
     - AskQty                       : [2,8]
     - EquilPrice                   : [3,4]
@@ -209,6 +209,7 @@
       O:
         name: Order Book State
         fields:
+        - MessageType
         - Timestamp
         - OrderBookNumber
         - OrderBookStateName
