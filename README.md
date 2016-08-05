@@ -17,6 +17,20 @@ Compile the code and run it. Navigate to the src directory and run the following
   java Parse [ITCH file path]
 ```
 
+(Path can be left blank to read from stdin.)
+
+## ITCH Format Variations
+
+Support is included for custom ITCH formats. See ```itch5.yaml``` for an example of how to construct an	ITCH format configuration. To include a custom ITCH format configuration:
+
+``` java Parse -y [YAML config] [ITCH file path] ```
+
+### Genium
+
+Genium is supported out of box. Use the ```genium2.yaml``` config included in the repo:
+
+``` java Parse -y ../genium2.yaml [ITCH file path] ```
+
 #Data
 
 Download raw ITCH 5.0 data from the following link:
@@ -26,3 +40,7 @@ ftp://emi.nasdaq.com/ITCH/08022014.NASDAQ_ITCH50.gz
 #DATA FORMAT
 
 http://www.nasdaqtrader.com/content/technicalsupport/specifications/dataproducts/NQTVITCHspecification.pdf
+
+(For Nasdaq Genium)
+
+http://business.nasdaq.com/Docs/ITCHRefDataGuideNFXv2_00_tcm5044-18017.pdf

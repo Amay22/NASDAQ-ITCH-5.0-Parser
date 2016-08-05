@@ -31,9 +31,11 @@ public final class ParseDS {
         fMap = new HashMap<>();
         ArrayList<Object> fArray = (ArrayList<Object>) yMap.get("formats");
 
-        fArray.stream().map((fArray1) -> (Map<Object, Object>) fArray1).forEach((tempMap) -> {
-            fMap.put(tempMap.keySet().toArray()[0], tempMap.values().toArray()[0]);
-        });
+	for (int i = 0; i < fArray.size(); ++i) {
+	    Map<Object,Object> tempMap = (Map<Object,Object>) (fArray.get(i));
+	    fMap.put(tempMap.keySet().toArray()[0],
+		     tempMap.values().toArray()[0]);
+	}
     }
     // Build the messages data structure
     public void buildMessages() {
@@ -42,11 +44,14 @@ public final class ParseDS {
     // Given Message type, return an array of the fields
     public ArrayList<Object> getFields(String mType) {
         Map<Object, Object> tempMap = (Map<Object, Object>) mMap.get(mType);
+	assert tempMap != null : "File type missing: " + mType;
         return (ArrayList<Object>) tempMap.get("fields");
     }
     // Given the field, get the correct parser format for that field
     public ArrayList<Object> getFormat(String field) {
-        return (ArrayList<Object>) fMap.get(field);
+	Object fieldVal = fMap.get(field);
+	assert fieldVal != null : "Format field missing: " + field;
+        return (ArrayList<Object>) fieldVal;
     }
     // Given message type, return String Message Name
     public String getFieldName(String mType) {

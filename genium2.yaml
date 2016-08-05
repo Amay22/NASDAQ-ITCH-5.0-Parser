@@ -1,0 +1,246 @@
+
+    formats:
+    - MessageType                  : [1,1]
+    - Timestamp                    : [2,4]
+    - SecondsTimestamp             : [2,4]
+    - StockLocate                  : [2,2]
+    - TrackingNumber               : [2,2]
+    - Stock                        : [1,8]
+    - Shares                       : [2,4]
+    - Shares_Q                     : [2,8]
+    - Quantity                     : [2,8]
+    - Price                        : [3,4]
+    - BuySellIndicator             : [1,1]
+    - OrderReferenceNumber         : [2,8]
+    - MatchNumber                  : [2,8]
+    - Attribution                  : [1,4]
+    - CanceledShares               : [2,4]
+    - CrossPrice                   : [3,4]
+    - CrossShares                  : [2,8]
+    - CrossType                    : [1,1]
+    - CurrentReferencePrice        : [3,4]
+    - EventCode                    : [1,1]
+    - ExecutedShares               : [2,4]
+    - ExecutedQuantity             : [2,8]
+    - ExecutionPrice               : [3,4]
+    - FarPrice                     : [3,4]
+    - FinancialStatusIndicator     : [1,1]
+    - Imbalance                    : [2,8]
+    - ImbalanceDirection           : [1,1]
+    - MPID                         : [1,4]
+    - MarketCatagory               : [1,1]
+    - MarketMakerMode              : [1,1]
+    - MarketParticipantState       : [1,1]
+    - NearPrice                    : [3,4]
+    - NewOrderReferenceNumber      : [2,8]
+    - OriginalOrderReferenceNumber : [2,8]
+    - PairedShares                 : [2,8]
+    - PriceVariationIndicator      : [1,1]
+    - PrimaryMarketMaker           : [1,1]
+    - Printable                    : [1,1]
+    - Reason                       : [1,4]
+    - RegSHOAction                 : [1,1]
+    - Reserved                     : [1,1]
+    - RoundLotSize                 : [2,4]
+    - RoundLotsOnly                : [1,1]
+    - TradingState                 : [1,1]
+    - Symbol                       : [1,32]
+    - LongName                     : [1,32]
+    - ISIN                         : [1,12]
+    - FinProdCode                  : [1,1]
+    - Currency                     : [1,3]
+    - NumPriceDecimals             : [2,2]
+    - NumNominalDecimals           : [2,2]
+    - OddLotSize                   : [2,4]
+    - RoundLotSize                 : [2,4]
+    - BlockLotSize                 : [2,4]
+    - NominalValue                 : [2,8]
+    - NumLegs                      : [2,1]
+    - UnderlyingBookNumber         : [2,4]
+    - StrikePrice                  : [3,4]
+    - ExpDate                      : [2,4]
+    - NumStrikeDecimals            : [2,2]
+    - PutOrCall                    : [1,1]
+    - MarketNumber                 : [2,2]
+    - IssueClassification          : [1,1]
+    - IssueSubType                 : [1,2]
+    - Authenticity                 : [1,1]
+    - SSThresholdIndicator         : [1,1]
+    - IPOFlag                      : [1,1]
+    - LocateCode                   : [2,2]
+    - Level1                       : [4,8]
+    - Level2                       : [4,8]
+    - Level3                       : [4,8]
+    - BreachedLevel                : [1,1]
+    - IPOQuotRelTime               : [2,4]
+    - IPOQuotRelQual               : [1,1]
+    - IPOPrice                     : [3,4]
+    - OrderBookNumber              : [2,4]
+    - OrderBookStateName           : [1,20]
+    - BidQty                       : [2,8]
+    - AskQty                       : [2,8]
+    - EquilPrice                   : [3,4]
+    - TickSize                     : [3,8]
+    - PriceFrom                    : [3,4]
+    - PriceTo                      : [3,4]
+    - OrderBookPosition            : [2,4]
+    - OrderAttributes              : [2,2]
+    - LotType                      : [2,1]
+    - ComboGroupNumber             : [2,4]
+    - ParticipantNumber            : [2,7]
+    - CounterpartyNumber           : [2,7]
+    - TradePrice                   : [3,4]
+    - OccurAtCross                 : [1,1]
+    - Printable                    : [1,1]
+    messages:
+      T:
+        name: Timestamp Seeconds
+        fields:
+        - MessageType
+        - SecondsTimestamp
+      S:
+        name: System Event Message
+        fields:
+        - MessageType
+        - Timestamp
+        - EventCode
+      R:
+        name: Stock Directory
+        fields:
+        - MessageType
+        - Timestamp
+        - OrderBookNumber
+        - Symbol
+        - LongName
+        - ISIN
+        - FinProdCode
+        - Currency
+        - NumPriceDecimals
+        - NumNominalDecimals
+        - OddLotSize
+        - RoundLotSize
+        - BlockLotSize
+        - NominalValue
+        - NumLegs
+        - UnderlyingBookNumber
+        - StrikePrice
+        - ExpDate
+        - NumStrikeDecimals
+        - PutOrCall
+        - MarketNumber
+      L:
+        name: Tick Size Table Entry
+        fields:
+        - MessageType
+        - Timestamp
+        - OrderBookNumber
+        - TickSize
+        - PriceFrom
+        - PriceTo
+      A:
+        name: Add Order (No MPID Attribution)
+        fields:
+        - MessageType
+        - Timestamp
+        - OrderReferenceNumber
+        - OrderBookNumber
+        - BuySellIndicator
+        - OrderBookPosition
+        - Quantity
+        - Price
+        - OrderAttributes
+        - LotType
+      F:
+        name: Add Order (MPID Attribution)
+        fields:
+        - MessageType
+        - Timestamp
+        - OrderReferenceNumber
+        - OrderBookNumber
+        - BuySellIndicator
+        - OrderBookPosition
+        - Quantity
+        - Price
+        - OrderAttributes
+        - LotType
+        - ParticipantNumber
+      E:
+        name: Order Executed
+        fields:
+        - MessageType
+        - Timestamp
+        - OrderReferenceNumber
+        - OrderBookNumber
+        - BuySellIndicator
+        - ExecutedQuantity
+        - MatchNumber
+        - ComboGroupNumber
+        - ParticipantNumber
+        - CounterpartyNumber
+      C:
+        name: Order Executed with Price
+        fields:
+        - MessageType
+        - Timestamp
+        - OrderReferenceNumber
+        - OrderBookNumber
+        - BuySellIndicator
+        - ExecutedQuantity
+        - MatchNumber
+        - ComboGroupNumber
+        - ParticipantNumber
+        - CounterpartyNumber
+        - TradePrice
+        - OccurAtCross
+        - Printable
+      D:
+        name: Order Delete
+        fields:
+        - MessageType
+        - Timestamp
+        - OrderReferenceNumber
+        - OrderBookNumber
+        - BuySellIndicator
+      U:
+        name: Order Replace
+        fields:
+        - MessageType
+        - Timestamp
+        - OrderReferenceNumber
+        - OrderBookNumber
+        - BuySellIndicator
+        - OrderBookPosition
+        - Quantity
+        - Price
+        - OrderAttributes
+      P:
+        name: Trade Message (non-cross)
+        fields:
+        - MessageType
+        - Timestamp
+        - MatchNumber
+        - ComboGroupNumber
+        - BuySellIndicator
+        - ExecutedQuantity
+        - OrderBookNumber
+        - TradePrice
+        - ParticipantNumber
+        - CounterpartyNumber
+        - OccurAtCross
+      O:
+        name: Order Book State
+        fields:
+        - MessageType
+        - Timestamp
+        - OrderBookNumber
+        - OrderBookStateName
+      Z:
+        name: Equilibrum Price Update
+        fields:
+        - Timestamp
+        - OrderBookNumber
+        - BidQty
+        - AskQty
+        - EquilPrice
+
+

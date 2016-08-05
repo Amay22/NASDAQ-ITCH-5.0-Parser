@@ -7,13 +7,13 @@ import java.util.ArrayList;
 
 public class Parse {
     private String filename;
-    private String yamlFile = "..//itch5.yaml";
     private boolean parseNPrint;
     private byte[] lenBytes = new byte[2];
     private InputStream input;
     Parsers parsers;
     ParseDS parseDS;
-    public Parse(String filename, boolean parseNPrint) {
+
+    public Parse(String filename, String yamlFile, boolean parseNPrint) {
         // Check arg for printing parsing the message
         this.parseNPrint = parseNPrint;
         // Via YAML, create the Data Structures
@@ -25,11 +25,18 @@ public class Parse {
         // Create the parsers with the YAML data structures
         parsers = new Parsers(parseDS);
         this.filename = filename;
-        // Open the data file
+        // Open the input stream...
         try {
-            input = new FileInputStream(new File(filename));
+	    if (filename.length() > 0) {
+		// From the file's path if specified...
+		input = new FileInputStream(new File(filename));
+	    } else {
+		/// ...or stdin otherwise
+		input = System.in;
+	    }
         } catch (FileNotFoundException e) {
-            System.out.println("File not found...Check Filename");
+            System.out.println("File (" + filename +
+			       ") not found...Check Filename");
         }
     }
 
@@ -40,7 +47,11 @@ public class Parse {
         }
         int payLength = input.read();
         byte[] payBytes = new byte[payLength]; // Get the payload
-        input.read(payBytes);
+
+	int offset = 0;  // Loop until we've read the full payload size
+	while (offset < payLength) {
+	    offset += input.read(payBytes, offset, payLength - offset);
+	}
 
         // Check if we are parsing and printing
         if (parseNPrint) {
@@ -52,9 +63,33 @@ public class Parse {
         }
         return payBytes;
     }
+
+    public static boolean hasCmdArgsYamlFlag (String args[]) {
+	return args.length >= 1 && args[0].equals("-y");
+    }
+
+    public static String readYamlPathArgs (String args[]) {
+	if (hasCmdArgsYamlFlag(args)) {
+	    return args[1];
+	} else {
+	    return "..//itch5.yaml";
+	}
+    }
+
+    public static String readItchPathArgs (String args[]) {
+	int argsPos = hasCmdArgsYamlFlag(args) ? 2 : 0;
+	if (args.length > argsPos) {
+	    return args[argsPos];
+	} else {
+	    return "";
+	}
+    }
+
     public static void main(String args[]) throws IOException, InterruptedException {
-        String filename = args[0];
-        Parse parse = new Parse(filename, true); // true to print otherwise enter false
+	String yamlPath = readYamlPathArgs(args);
+        String filename = readItchPathArgs(args);
+        Parse parse = new Parse(filename, yamlPath,
+				true); // true to print otherwise enter false
         while (parse.parse() != null) {}
     }
 }
