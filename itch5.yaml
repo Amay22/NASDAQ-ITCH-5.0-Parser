@@ -58,6 +58,10 @@
     - IPOQuotRelTime               : [2,4]
     - IPOQuotRelQual               : [1,1]
     - IPOPrice                     : [3,4]
+    - AuctionCollarReferencePrice  : [3,4]
+    - UpperAuctionCollarPrice      : [3,4]
+    - LowerAuctionCollarPrice      : [3,4]
+    - AuctionCollarExtension       : [2,4] 
     messages:
       S:
         name: System Event Message
@@ -88,6 +92,18 @@
         - ETPFlag
         - ETPFactor
         - InverseIndicator
+      J:
+        name: LULD Auction Collar
+        fields:
+        - MessageType
+        - StockLocate
+        - TrackingNumber
+        - Timestamp
+        - Stock
+        - AuctionCollarReferencePrice
+        - UpperAuctionCollarPrice
+        - LowerAuctionCollarPrice
+        - AuctionCollarExtension 
       H:
         name: Stock Trading Action
         fields:
